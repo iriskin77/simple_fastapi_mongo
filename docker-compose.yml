@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  mongodb:
+    image: bitnami/mongodb:latest
+    hostname: mongo
+    ports:
+      - '7777:27017'
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: user_name
+        MONGO_INITDB_ROOT_PASSWORD: password123
+        MONGO_INITDB_DATABASE: db_name
+    volumes:
+      - data:/bitnami/mongodb
+
+# mongodb://admin:password123@localhost:6000/fastapi?authSource=admin
+volumes:
+  data:
